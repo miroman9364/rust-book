@@ -1,2 +1,11 @@
+# ignore all
+*
+
+# unignore all with extensions
+!*.*
+
+# unignore all dirs
+!*/
+
 # ignore local user files
 *.user.*
