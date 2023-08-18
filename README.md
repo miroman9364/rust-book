@@ -5,4 +5,4 @@ This project represents my walkthrough of the book [The Rust Programming Languag
 ## Chapter 1
 
 - Installing Rust on [Linux](https://rust-book.cs.brown.edu/ch01-01-installation.html#installing-rustup-on-linux-or-macos), [macOS](https://rust-book.cs.brown.edu/ch01-01-installation.html#installing-rustup-on-linux-or-macos), or [Windows](https://rust-book.cs.brown.edu/ch01-01-installation.html#installing-rustup-on-windows)
-- Open a local copy of the Rust book: `rust doc`
+- Open a local copy of the Rust book: `rustup doc`
