@@ -1,0 +1,16 @@
+{
+  "files.associations": {
+    ".editorconfig": "ini"
+  },
+  "files.eol": "\n",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "z.thecatdidit.last.line": "keep this at the end so it is easier to insert, copy and paste other settings"
+}

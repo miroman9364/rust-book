@@ -1,0 +1,12 @@
+{
+  // https://go.microsoft.com/fwlink/?LinkId=827846
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "davidanson.vscode-markdownlint",
+    "docsmsft.docs-authoring-pack",
+    "rust-lang.rust-analyzer",
+    "serayuzgur.crates",
+    "streetsidesoftware.code-spell-checker",
+    "tamasfe.even-better-toml"
+  ]
+}
