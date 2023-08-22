@@ -18,7 +18,20 @@
   "features": {},
 
   // Configure tool-specific properties.
-  "customizations": {},
+  "customizations": {
+    // Configure properties specific to VS Code.
+    "vscode": {
+      "extensions": [
+        "davidanson.vscode-markdownlint",
+        "esbenp.prettier-vscode",
+        "docsmsft.docs-authoring-pack",
+        "rust-lang.rust-analyzer",
+        "serayuzgur.crates",
+        "streetsidesoftware.code-spell-checker",
+        "tamasfe.even-better-toml"
+      ]
+    }
+  },
 
   // Use `forwardPorts` to make a list of ports inside the container available locally.
   "forwardPorts": [],
