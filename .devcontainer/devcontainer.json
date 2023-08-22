@@ -39,10 +39,30 @@
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   // "remoteUser": "root",
 
-  // Use `postCreateCommand` to run commands after the container is created.
-  // "postCreateCommand": "rustc --version",
+  // Use `initializeCommand` to run commands on the **host** machine before
+  // the container is created. (**Note:** Do not try to access `${containerEnv}`
+  // variables until after the `initializeCommand` event.)
+  "initializeCommand": "echo @initializeCommand, devcontainerId: ${devcontainerId}, local, user: ${localEnv:USER}${localEnv:USERNAME}, workspace: ${localWorkspaceFolder}, container, workspace: ${containerWorkspaceFolder}",
+
+  // Use `onCreateCommand` to run commands **inside** the container after
+  // it has started for the first time.
+  "onCreateCommand": "echo @onCreateCommand, devcontainerId: ${devcontainerId}, local, user: ${localEnv:USER}${localEnv:USERNAME}, workspace: ${localWorkspaceFolder}, container, user: ${containerEnv:USER:'<undefined>'}, workspace: ${containerWorkspaceFolder}",
+
+  // Use `updateContentCommand` to run commands **inside** the container
+  // after `onCreateCommand`, whenever new content is available in the source
+  // tree during the creation process.
+  "updateContentCommand": "echo @updateContentCommand, devcontainerId: ${devcontainerId}, local, user: ${localEnv:USER}${localEnv:USERNAME}, workspace: ${localWorkspaceFolder}, container, user: ${containerEnv:USER:'<undefined>'}, workspace: ${containerWorkspaceFolder}",
+
+  // Use `postCreateCommand` to run commands **inside** the container
+  // after `updateContentCommand`, once the dev container has been assigned
+  // to a user for the first time.
+  "postCreateCommand": "echo @postCreateCommand, devcontainerId: ${devcontainerId}, local, user: ${localEnv:USER}${localEnv:USERNAME}, workspace: ${localWorkspaceFolder}, container, user: ${containerEnv:USER:'<undefined>'}, workspace: ${containerWorkspaceFolder}, $(rustc --version)",
 
   // Use `postStartCommand` to run commands **inside** the container each time
   // it is successfully started.
-  "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
+  "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+
+  // Use `postAttachCommand` to run commands **inside** the container each time
+  // a tool has successfully attached to the container.
+  "postAttachCommand": "echo @postAttachCommand, devcontainerId: ${devcontainerId}, local, user: ${localEnv:USER}${localEnv:USERNAME}, workspace: ${localWorkspaceFolder}, container, user: ${containerEnv:USER:'<undefined>'}, workspace: ${containerWorkspaceFolder}"
 }
