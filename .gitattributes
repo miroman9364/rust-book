@@ -1,2 +1,6 @@
 # Set the default text line endings to linefeed; supported on all platforms.
-* text=lf
+* text=auto eol=lf
+
+# Explicitly declare text files you want to always be normalized and converted
+*.{cmd,[cC][mM][dD]} text eol=crlf
+*.{bat,[bB][aA][tT]} text eol=crlf
