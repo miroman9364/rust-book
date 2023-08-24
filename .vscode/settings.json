@@ -3,6 +3,9 @@
     ".editorconfig": "ini"
   },
   "files.eol": "\n",
+  "rust-analyzer.linkedProjects": [
+    "projects/hello_cargo/Cargo.toml"
+  ],
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
