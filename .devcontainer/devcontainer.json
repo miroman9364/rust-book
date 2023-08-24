@@ -25,6 +25,7 @@
         "davidanson.vscode-markdownlint",
         "esbenp.prettier-vscode",
         "docsmsft.docs-authoring-pack",
+        "editorconfig.editorconfig",
         "github.copilot",
         "github.copilot-chat",
         "github.vscode-pull-request-github",
