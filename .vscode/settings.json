@@ -4,7 +4,8 @@
   },
   "files.eol": "\n",
   "rust-analyzer.linkedProjects": [
-    "projects/hello_cargo/Cargo.toml"
+    "projects/hello_cargo/Cargo.toml",
+    "projects/scratch/Cargo.toml"
   ],
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
