@@ -6,6 +6,7 @@ fn main() {
     println!("Guess the number!");
 
     const MAX_WINNING_TRIES: usize = 5;
+    const AVERAGE_TRIES: usize = 7;
     const SHOULD_SPOIL_SECRET: bool = true;
 
     let number = get_number(SHOULD_SPOIL_SECRET);
@@ -15,6 +16,10 @@ fn main() {
         println!("You quit the game.");
     } else if tries <= MAX_WINNING_TRIES {
         println!("You win! It only took you {tries} tries to guess the correct number.");
+    } else if tries < AVERAGE_TRIES {
+        println!("You only took {tries} tries. That's better than average.");
+    } else if tries == AVERAGE_TRIES {
+        println!("You got it in {tries}, which is the average number of guesses.");
     } else {
         println!("It took you {tries} tries to guess the correct number.");
     }
