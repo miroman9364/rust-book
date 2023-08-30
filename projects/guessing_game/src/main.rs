@@ -11,7 +11,9 @@ fn main() {
     let number = get_number(SHOULD_SPOIL_SECRET);
 
     let tries = keep_guessing(number);
-    if tries <= MAX_WINNING_TRIES {
+    if tries == 0 {
+        println!("You quit the game.");
+    } else if tries <= MAX_WINNING_TRIES {
         println!("You win! It only took you {tries} tries to guess the correct number.");
     } else {
         println!("It took you {tries} tries to guess the correct number.");
@@ -26,7 +28,10 @@ fn keep_guessing(expected: u32) -> usize {
     loop {
         tries += 1;
 
-        let guess = get_guess();
+        let guess = get_guess(low_guess, hi_guess);
+        if guess == 0 {
+            return guess as usize;
+        }
 
         println!("You guessed: {guess}");
         if check_guess(guess, expected, &mut low_guess, &mut hi_guess) {
@@ -46,38 +51,53 @@ fn get_number(spoil_the_secret: bool) -> u32 {
     number
 }
 
-fn get_guess() -> u32 {
-    println!("Please input your guess.");
+fn get_guess(low_guess: u32, hi_guess: u32) -> u32 {
+    loop {
+        println!("Please input your guess.");
 
-    let mut guess = String::new();
+        let mut guess = String::new();
 
-    io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to read line");
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line");
 
-    guess.trim().parse().expect("Please type a number!")
+        guess = guess.trim().to_lowercase().to_string();
+
+        match guess.as_str() {
+            "help" | "help?" | "hint" | "hint?" | "?" => show_help(low_guess, hi_guess),
+            "quit" | "exit" | "stop" => break,
+            _ => {
+                if let Ok(num) = guess.parse() {
+                    return num;
+                }
+
+                println!("Please enter a valid number!");
+            }
+        }
+    }
+
+    0
 }
 
 fn check_guess(guess: u32, expected: u32, low: &mut u32, hi: &mut u32) -> bool {
-    let is_match = match guess.cmp(&expected) {
+    match guess.cmp(&expected) {
         Ordering::Less => {
             println!("A cold wind blows over your left shoulder");
-            *low = guess;
+            *low = guess + 1;
             false
         }
         Ordering::Greater => {
             println!("A cold wind blows over your right shoulder");
-            *hi = guess;
+            *hi = guess - 1;
             false
         }
         Ordering::Equal => true,
-    };
-
-    if !is_match {
-        let rand_guess = rand::thread_rng().gen_range((*low + 1)..(*hi - 1));
-        let mid = (*low + *hi) / 2;
-        println!("The secret number is between {low} and {hi}, e.g. {rand_guess} or {mid}");
     }
+}
 
-    is_match
+fn show_help(low_guess: u32, hi_guess: u32) {
+    let rand_guess = rand::thread_rng().gen_range(low_guess..hi_guess);
+    let mid = (low_guess + hi_guess) / 2;
+
+    println!("The number is between {low_guess} and {hi_guess}, e.g. {rand_guess} or {mid}");
 }
