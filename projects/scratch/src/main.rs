@@ -22,7 +22,20 @@ fn main() {
     twelve_days_of_christmas();
 
     println!("Let's count down!");
-    try_loop();    
+    try_loop();
+
+    play_with_box();
+}
+
+fn play_with_box() {
+    let mut b: Box<i32> = Box::new(5);
+    println!("b = {b}");
+
+    *b += 1;
+    println!("b = {b}");
+
+    let b = Box::new([7; 3]);
+    println!("b[0] = {}", b[0]);
 }
 
 fn to_celsius(fahrenheit: f64) -> f64 {

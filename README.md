@@ -80,3 +80,24 @@ In addition to what the book covers, I embellished as follows:
 - I created multiple exit conditions
 - I gave the ability to ask for a hint/help
 - I made it so typing a non-number guess doesn't cause a panic
+
+## Chapter 4
+
+In [chapter 4](https://rust-book.cs.brown.edu/ch04-00-understanding-ownership.html) you learn about ownership. This seems to be the biggest thing that sets Rust apart from most other languages. This is the thing I know nothing about. ☺️
+
+A lot of the following is quoted and/or summarized directly from the Rust book:
+
+- "Safety is the absence of undefined behavior." That makes sense.
+- Rust avoids _runtime-checks_ by doing extensive _compile-time_ checks.
+- "A foundational goal of Rust is to ensure that your programs never have undefined behavior."
+- A secondary goal of Rust is to prevent undefined behavior at compile-time instead of run-time.
+  - Catching bugs at compile-time means avoiding those bugs in production, improving the reliability of your software.
+  - Catching bugs at compile-time means fewer runtime checks for those bugs, improving the performance of your software.
+- Rust cannot prevent all bugs. You can still have bad-logic that is programmatically safe, but causes unexpected and undesirable results, such as an unauthenticated API to what is intended to be secure data.
+- The Rust Reference maintains a large list of ["Behavior considered undefined"](https://doc.rust-lang.org/reference/behavior-considered-undefined.html).
+
+### TODO: Aquascope
+
+Look into how you might temporarily install [Aquascope](https://github.com/cognitive-engineering-lab/aquascope) into the devcontainer and try playing with it to see what's happening under the covers.
+
+[//]: # (cSpell:ignore Aquascope,)
