@@ -1,5 +1,7 @@
 words:
   - devcontainer
   - devcontainers
+  - rustc
   - rustlang
+  - rustup
   - struct
