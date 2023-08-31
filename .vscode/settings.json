@@ -3,6 +3,7 @@
     ".editorconfig": "ini"
   },
   "files.eol": "\n",
+  "markdownlint.customRules": [],
   "rust-analyzer.linkedProjects": [
     "projects/hello_cargo/Cargo.toml",
     "projects/scratch/Cargo.toml"
