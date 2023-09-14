@@ -1,3 +1,5 @@
+mod ownership;
+
 fn main() {
     let fahrenheit: f64 = 72.0;
     let celsius: f64 = to_celsius(fahrenheit);
@@ -24,18 +26,8 @@ fn main() {
     println!("Let's count down!");
     try_loop();
 
-    play_with_box();
-}
-
-fn play_with_box() {
-    let mut b: Box<i32> = Box::new(5);
-    println!("b = {b}");
-
-    *b += 1;
-    println!("b = {b}");
-
-    let b = Box::new([7; 3]);
-    println!("b[0] = {}", b[0]);
+    ownership::play_with_box();
+    ownership::ownership_examples();
 }
 
 fn to_celsius(fahrenheit: f64) -> f64 {
