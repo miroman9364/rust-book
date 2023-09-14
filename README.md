@@ -95,6 +95,11 @@ A lot of the following is quoted and/or summarized directly from the Rust book:
   - Catching bugs at compile-time means fewer runtime checks for those bugs, improving the performance of your software.
 - Rust cannot prevent all bugs. You can still have bad-logic that is programmatically safe, but causes unexpected and undesirable results, such as an unauthenticated API to what is intended to be secure data.
 - The Rust Reference maintains a large list of ["Behavior considered undefined"](https://doc.rust-lang.org/reference/behavior-considered-undefined.html).
+- Ownership is primarily a discipline of heap management:
+  - All heap data must be owned by exactly one variable.
+  - Rust deallocates heap data once its owner goes out of scope.
+  - Ownership can be transferred by moves, which happen on assignments and function calls.
+  - Heap data can only be accessed through its current owner, not a previous owner.
 
 ### TODO: Aquascope
 
