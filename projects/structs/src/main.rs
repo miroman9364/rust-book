@@ -5,8 +5,9 @@ struct Rectangle {
 }
 
 fn main() {
+    let scale = 2;
     let rect1 = Rectangle {
-        width: 30,
+        width: dbg!(30 * scale),
         height: 50,
     };
 
@@ -18,5 +19,5 @@ fn main() {
 }
 
 fn area(rectangle: &Rectangle) -> u32 {
-    rectangle.width * rectangle.height
+    dbg!(rectangle.width * rectangle.height)
 }
