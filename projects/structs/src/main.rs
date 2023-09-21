@@ -21,7 +21,7 @@ impl Rectangle {
         dbg!(self.width.min(self.height))
     }
 
-    fn new(width: u32, height: u32) -> Rectangle {
+    fn new(width: u32, height: u32) -> Self {
         dbg!(Self { width, height })
     }
 }
